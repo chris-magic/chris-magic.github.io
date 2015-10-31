@@ -29,7 +29,7 @@
 注释遵循英文写作习惯，英文标点符号后空一格，避免句子紧凑
 颜色色值的字母必须全部大写
 布局文件中不要出现硬代码">
-<meta property="og:updated_time" content="2015-10-26T11:05:06.000Z">
+<meta property="og:updated_time" content="2015-10-31T08:49:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android-Code-Style">
 <meta name="twitter:description" content="Android代码规范
@@ -126,6 +126,7 @@
 <li><font color="red"><strong>日志输出统一使用自定义logcat</strong></font></li>
 <li><font color="red"><strong>所有Activity 统一继承自定义 BaseActivity</strong></font></li>
 <li>原生图片放在mipmap里面，而drawable主要放一些自定义形状和按钮变色之类的xml</li>
+<li><strong>尽可能使用静态内部类而不是非静态内部类。</strong>每一个非静态内部类实例都会持有一个外部类的引用，若该引用是 Activity 的引用，那么该 Activity 在被销毁时将无法被回收。如果你的静态内部类需要一个相关 Activity 的引用以确保功能能够正常运行，那么你得确保你在对象中使用的是一个 Activity 的弱引用，否则你的 Activity 将会发生意外的内存泄漏。</li>
 </ul>
 <hr>
 <h1 id="命名规则">命名规则</h1><h2 id="1-_包命名">1. 包命名</h2><p>包名由小写的字母组成，默认以<font color="red">com.ecdj</font>开头，然后接上根据功能划分的模块名。</p>
@@ -143,7 +144,7 @@
 <figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> FADE_IN_TIME = <span class="number">200</span>;</span><br></pre></td></tr></table></figure>
 <h2 id="6-_异常的命名">6. 异常的命名</h2><p>名称必须以Exception结尾。</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NullPointerException</span><br></pre></td></tr></table></figure>
-<h2 id="7-_布局的命名">7. 布局的命名</h2><p>name是模块的名称或功能的描述，单词必须全部小写，单词之间用下划线隔开。</p>
+<h2 id="7-_布局的命名_xml的命名">7. 布局的命名 xml的命名</h2><p>name是<strong><font color="red">模块的名称</font>+<font color="blue">功能的描述</font></strong>，单词必须全部小写，单词之间用下划线隔开。</p>
 <table>
 <thead>
 <tr>
@@ -155,32 +156,32 @@
 <tbody>
 <tr>
 <td>Activity</td>
-<td style="text-align:center">activity_name.xml</td>
-<td style="text-align:right">activity_main.xml</td>
+<td style="text-align:center">activity_module_name.xml</td>
+<td style="text-align:right">activity_home_main.xml</td>
 </tr>
 <tr>
 <td>Tab</td>
-<td style="text-align:center">tab_name.xml</td>
-<td style="text-align:right">tab_home.xml</td>
+<td style="text-align:center">tab_module_name.xml</td>
+<td style="text-align:right">tab_home_menu.xml</td>
 </tr>
 <tr>
 <td>Dialog</td>
-<td style="text-align:center">dialog_name.xml</td>
-<td style="text-align:right">dialog_login.xml</td>
+<td style="text-align:center">dialog_module_name.xml</td>
+<td style="text-align:right">dialog_home_login.xml</td>
 </tr>
 <tr>
 <td>ListItem</td>
-<td style="text-align:center">item_name.xml</td>
-<td style="text-align:right">tab_home.xml</td>
+<td style="text-align:center">item_module_name.xml</td>
+<td style="text-align:right">tab_home_products.xml</td>
 </tr>
 <tr>
 <td>Dialog</td>
-<td style="text-align:center">dialog_name.xml</td>
-<td style="text-align:right">item_contact.xml</td>
+<td style="text-align:center">dialog_module_name.xml</td>
+<td style="text-align:right">item_home_contact.xml</td>
 </tr>
 </tbody>
 </table>
-<h2 id="8-_ID的命名">8. ID的命名</h2><p>组成名称的单词必须全部小写，单词之间用下划线隔开，名称不需要复杂的层级定位，只需要准确描述所代表控件的功能作用即可，通常我们在名称前使用控件类型的缩写前缀来避免重复起名的麻烦。</p>
+<h2 id="8-_ID的命名">8. ID的命名</h2><p>组成名称的单词必须全部小写，单词之间用下划线隔开，名称不需要复杂的层级定位，只需要准确描述所代表控件的功能作用即可，通常我们在名称前使用控件类型的缩写前缀来避免重复起名的麻烦。例如：<strong><font color="red">控件类型</font><em><font color="blue">模块名</font></em>控件名字</strong></p>
 <p>name是模块的名称或功能的描述。</p>
 <table>
 <thead>
@@ -391,7 +392,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/10/26/Android-Code-Style/" data-id="cig81096h0000rvu9f68yd2s1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/10/26/Android-Code-Style/" data-id="cigeul93u0000j2u98c4nauvj" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编码规范/">编码规范</a></li></ul>
