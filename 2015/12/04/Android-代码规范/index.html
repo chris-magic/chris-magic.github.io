@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Android\_代码规范 | Hexo</title>
+  <title>Android-代码规范 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="开始之前请详细阅读并遵守Android开发者代码风格指南
 不要使用拼音命名
@@ -15,7 +15,7 @@
 布局文件中不要出现硬代码，无法国家化
 字体大小使用sp">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android\_代码规范">
+<meta property="og:title" content="Android-代码规范">
 <meta property="og:url" content="http://yoursite.com/2015/12/04/Android-代码规范/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="开始之前请详细阅读并遵守Android开发者代码风格指南
@@ -27,9 +27,9 @@
 颜色色值的字母必须全部大写
 布局文件中不要出现硬代码，无法国家化
 字体大小使用sp">
-<meta property="og:updated_time" content="2015-12-04T08:58:48.000Z">
+<meta property="og:updated_time" content="2015-12-07T03:15:11.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android\_代码规范">
+<meta name="twitter:title" content="Android-代码规范">
 <meta name="twitter:description" content="开始之前请详细阅读并遵守Android开发者代码风格指南
 不要使用拼音命名
 名称应简洁而富于描述，使用完整单词，避免使用缩写除非该缩写被更广泛使用，例如URL、HTML）
@@ -102,7 +102,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Android\_代码规范
+      Android-代码规范
     </h1>
   
 
@@ -111,7 +111,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <ul>
-<li><a href="www.baidu.com">开始之前请详细阅读并遵守Android开发者代码风格指南</a></li>
+<li><a href="http://source.android.com/source/code-style.html" target="_blank" rel="external">开始之前请详细阅读并遵守Android开发者代码风格指南</a></li>
 <li><strong>不要使用拼音命名</strong></li>
 <li>名称应简洁而富于描述，<strong>使用完整单词，避免使用缩写</strong>除非该缩写被更广泛使用，例如URL、HTML）</li>
 <li>代码中不要出现中文标点字符，例如：‘，’、‘：’</li>
@@ -187,7 +187,32 @@ public boolean <span class="function"><span class="title">isExist</span><span cl
 <p>控件类型   | 源文件中缩写 |资源文件中缩写<br>-——- | ———        | —-<br>View     | V        | v<br>Button   | Btn       | btn<br>ImageButton     | Ibtn        | ibtn<br>RadioButton     | Rbtn        | rbtn<br>ToggleButton    | Tbtn        | tbtn<br>CheckBox        | Chk        | chk<br>TextView        | Tv        | tv<br>EditText     | Et        | et<br>ImageView     | Iv        | iv<br>ListView     | Lv        | lv<br>ProgressBar     | Pbar        | pbar<br>ScrollView     | Sclv        | sclv<br>RelativeLayout     | Rlyt        | rlyt<br>LinearLayout     | Llyt        | llyt<br>TableLayout     | Tlyt        | tlyt<br>FrameLayout     | Flyt        | flyt</p>
 <h2 id="9-_图片的命名">9. 图片的命名</h2><p>name是模块的名称或功能的描述。</p>
 <p>图片名称一般由模块名称/功能描述 + 后缀组成，后缀是可选的。</p>
-<p>前缀   | 描述 | 示例<br>-——- | ———        | —-<br>ic_     |图标             |ic_launcher.png<br>bg_     |背景图片           |bg_title.png<br>sl_     |状态图片           |sl_button.png</p>
+<table>
+<thead>
+<tr>
+<th>前缀</th>
+<th>描述</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ic_</td>
+<td>图标</td>
+<td>ic_launcher.png</td>
+</tr>
+<tr>
+<td>bg_</td>
+<td>背景图片</td>
+<td>bg_title.png</td>
+</tr>
+<tr>
+<td>sl_</td>
+<td>状态图片</td>
+<td>sl_button.png</td>
+</tr>
+</tbody>
+</table>
 <p>后缀      |描述 |示例<br>-———|—-|—<br>无       |普通状态|login.png<br>_p      |按压状态|login_p.png<br>_c      |选中状态|login_c.png<br>_d      |不可用状态|login_d.png</p>
 <h2 id="10-_其他资源命名">10. 其他资源命名</h2><p>遵循见名知意的原则，组成名称的单词必须全部小写，单词之间用下划线隔开。</p>
 <p>```</p>
@@ -287,7 +312,7 @@ public boolean <span class="function"><span class="title">isExist</span><span cl
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/日志/">日志</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/规范/">规范</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/日志/">日志</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/规范/">规范</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -296,7 +321,7 @@ public boolean <span class="function"><span class="title">isExist</span><span cl
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码规范/">代码规范</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/编码规范/">编码规范</a><span class="tag-list-count">2</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码规范/">代码规范</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/编码规范/">编码规范</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -305,7 +330,7 @@ public boolean <span class="function"><span class="title">isExist</span><span cl
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/代码规范/" style="font-size: 10px;">代码规范</a> <a href="/tags/编码规范/" style="font-size: 20px;">编码规范</a>
+      <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/代码规范/" style="font-size: 10px;">代码规范</a> <a href="/tags/编码规范/" style="font-size: 10px;">编码规范</a>
     </div>
   </div>
 
@@ -314,7 +339,7 @@ public boolean <span class="function"><span class="title">isExist</span><span cl
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -326,15 +351,11 @@ public boolean <span class="function"><span class="title">isExist</span><span cl
       <ul>
         
           <li>
-            <a href="/2015/12/04/Android-代码规范/">Android\_代码规范</a>
+            <a href="/2015/12/04/Android-代码规范/">Android-代码规范</a>
           </li>
         
           <li>
             <a href="/2015/10/26/Android-Studio-环境配置/">Android Studio --环境配置</a>
-          </li>
-        
-          <li>
-            <a href="/2015/10/26/Android-Code-Style/">Android-Code-Style</a>
           </li>
         
       </ul>
