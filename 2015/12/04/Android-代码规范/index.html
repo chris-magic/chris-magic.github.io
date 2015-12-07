@@ -27,7 +27,7 @@
 颜色色值的字母必须全部大写
 布局文件中不要出现硬代码，无法国家化
 字体大小使用sp">
-<meta property="og:updated_time" content="2015-12-07T03:15:11.000Z">
+<meta property="og:updated_time" content="2015-12-07T03:31:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android-代码规范">
 <meta name="twitter:description" content="开始之前请详细阅读并遵守Android开发者代码风格指南
@@ -122,11 +122,11 @@
 <li>字体大小使用sp ,其他的使用 dp.</li>
 <li><strong>日志输出统一使用自定义logcat</strong></li>
 <li><strong>所有Activity 统一继承自定义 BaseActivity</strong></li>
-<li>原生图片放在mipmap里面，而drawable主要放一些自定义形状和按钮变色之类的xml</li>
+<li>原生图片放在mipmap里面，而drawable主要放一些自定义形状和按钮变色之类的xml.</li>
 <li><strong>尽可能使用静态内部类而不是非静态内部类。</strong>每一个非静态内部类实例都会持有一个外部类的引用，若该引用是 Activity 的引用，那么该 Activity 在被销毁时将无法被回收。如果你的静态内部类需要一个相关 Activity 的引用以确保功能能够正常运行，那么你得确保你在对象中使用的是一个 Activity 的弱引用，否则你的 Activity 将会发生意外的内存泄漏。</li>
 </ul>
 <hr>
-<h1 id="命名规则">命名规则</h1><h2 id="1-_包命名">1. 包命名</h2><p>包名由小写的字母组成，默认以_com.ecdj_开头，然后接上根据功能划分的模块名。</p>
+<h1 id="命名规则">命名规则</h1><h2 id="1-_包命名">1. 包命名</h2><p>包名由小写的字母组成，默认以 <em>com.ecdj</em> 开头，然后接上根据功能划分的模块名。</p>
 <pre><code>com<span class="class">.ecdj</span><span class="class">.ui</span>
 com<span class="class">.ecdj</span><span class="class">.widget</span>
 </code></pre><h2 id="2-_类和接口命名">2. 类和接口命名</h2><p>名称的首字母需要大写，如果由多个单词组成，那么每个单词的首字母需要大写，其他字母小写。</p>
@@ -138,12 +138,20 @@ public boolean <span class="function"><span class="title">isExist</span><span cl
 </code></pre><h2 id="4-_变量的命名">4. 变量的命名</h2><blockquote>
 <p>Non-public, non-static field names start with m.<br>非公共的、非静态的域变量用m前缀.<br>Static field names start with s.<br>静态域变量用s前缀.<br>Other fields start with a lower case letter.</p>
 </blockquote>
-<p>例如:<br>    public class MyClass {<br>        public static final int SOME_CONSTANT = 42;<br>        public int publicField;<br>        private static MyClass sSingleton;<br>        int mPackagePrivate;<br>        private int mPrivate;<br>        protected int mProtected;<br>    }</p>
-<h2 id="5-_常量的命名">5. 常量的命名</h2><p>常量需要声明为final static形式，组成名称的单词必须全部大写，单词之间用下划线隔开。</p>
+<p>例如:</p>
+<pre><code><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> </span>{
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> SOME_CONSTANT = <span class="number">42</span>;
+    <span class="keyword">public</span> <span class="keyword">int</span> publicField;
+    <span class="keyword">private</span> <span class="keyword">static</span> MyClass sSingleton;
+    <span class="keyword">int</span> mPackagePrivate;
+    <span class="keyword">private</span> <span class="keyword">int</span> mPrivate;
+    <span class="keyword">protected</span> <span class="keyword">int</span> mProtected;
+}
+</code></pre><h2 id="5-_常量的命名">5. 常量的命名</h2><p>常量需要声明为final static形式，组成名称的单词必须全部大写，单词之间用下划线隔开。</p>
 <pre><code><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> FADE_IN_TIME = <span class="number">200</span>;
 </code></pre><h2 id="6-_异常的命名">6. 异常的命名</h2><p>名称必须以Exception结尾。</p>
 <pre><code>NullPointerException
-</code></pre><h2 id="7-_布局的命名_xml的命名">7. 布局的命名 xml的命名</h2><p>name是<strong><font color="red">模块的名称</font>+<font color="blue">功能的描述</font></strong>，单词必须全部小写，单词之间用下划线隔开。</p>
+</code></pre><h2 id="7-_布局的命名_xml的命名">7. 布局的命名 xml的命名</h2><p>name是 <strong><font color="red">模块的名称</font>+<font color="blue">功能的描述</font></strong> ，单词必须全部小写，单词之间用下划线隔开。</p>
 <table>
 <thead>
 <tr>
@@ -182,9 +190,130 @@ public boolean <span class="function"><span class="title">isExist</span><span cl
 </table>
 <h2 id="8-_ID的命名">8. ID的命名</h2><p>组成名称的单词必须全部小写，单词之间用下划线隔开，名称不需要复杂的层级定位，只需要准确描述所代表控件的功能作用即可，通常我们在名称前使用控件类型的缩写前缀来避免重复起名的麻烦。例如：<strong><font color="red">控件类型</font>+<font color="blue">模块名</font>+控件名字</strong></p>
 <p>name是模块的名称或功能的描述。</p>
-<p>类型      | 模板    | 事例<br>—- —- | —     | —-<br>TextView | tv_name | tv_title<br>EditText | et_name | et_mail<br>RelativeLayout     | rlyt_name    |rlyt_login<br>LinearLayout | llyt_name | llyt_login</p>
-<p><font color="red"><strong> 控件类型缩写对照表 </strong><font></font></font></p>
-<p>控件类型   | 源文件中缩写 |资源文件中缩写<br>-——- | ———        | —-<br>View     | V        | v<br>Button   | Btn       | btn<br>ImageButton     | Ibtn        | ibtn<br>RadioButton     | Rbtn        | rbtn<br>ToggleButton    | Tbtn        | tbtn<br>CheckBox        | Chk        | chk<br>TextView        | Tv        | tv<br>EditText     | Et        | et<br>ImageView     | Iv        | iv<br>ListView     | Lv        | lv<br>ProgressBar     | Pbar        | pbar<br>ScrollView     | Sclv        | sclv<br>RelativeLayout     | Rlyt        | rlyt<br>LinearLayout     | Llyt        | llyt<br>TableLayout     | Tlyt        | tlyt<br>FrameLayout     | Flyt        | flyt</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>模板</th>
+<th>事例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TextView</td>
+<td>tv_name</td>
+<td>tv_title</td>
+</tr>
+<tr>
+<td>EditText</td>
+<td>et_name</td>
+<td>et_mail</td>
+</tr>
+<tr>
+<td>RelativeLayout</td>
+<td>rlyt_name</td>
+<td>rlyt_login</td>
+</tr>
+<tr>
+<td>LinearLayout</td>
+<td>llyt_name</td>
+<td>llyt_login</td>
+</tr>
+</tbody>
+</table>
+<font color="red"> <strong> 控件类型缩写对照表 </strong></font>
+
+<table>
+<thead>
+<tr>
+<th>控件类型</th>
+<th>源文件中缩写</th>
+<th>资源文件中缩写</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>View</td>
+<td>V</td>
+<td>v  </td>
+</tr>
+<tr>
+<td>Button</td>
+<td>Btn</td>
+<td>btn  </td>
+</tr>
+<tr>
+<td>ImageButton</td>
+<td>Ibtn</td>
+<td>ibtn</td>
+</tr>
+<tr>
+<td>RadioButton</td>
+<td>Rbtn</td>
+<td>rbtn  </td>
+</tr>
+<tr>
+<td>ToggleButton</td>
+<td>Tbtn</td>
+<td>tbtn  </td>
+</tr>
+<tr>
+<td>CheckBox</td>
+<td>Chk</td>
+<td>chk  </td>
+</tr>
+<tr>
+<td>TextView</td>
+<td>Tv</td>
+<td>tv  </td>
+</tr>
+<tr>
+<td>EditText</td>
+<td>Et</td>
+<td>et  </td>
+</tr>
+<tr>
+<td>ImageView</td>
+<td>Iv</td>
+<td>iv  </td>
+</tr>
+<tr>
+<td>ListView</td>
+<td>Lv</td>
+<td>lv  </td>
+</tr>
+<tr>
+<td>ProgressBar</td>
+<td>Pbar</td>
+<td>pbar</td>
+</tr>
+<tr>
+<td>ScrollView</td>
+<td>Sclv</td>
+<td>sclv  </td>
+</tr>
+<tr>
+<td>RelativeLayout</td>
+<td>Rlyt</td>
+<td>rlyt  </td>
+</tr>
+<tr>
+<td>LinearLayout</td>
+<td>Llyt</td>
+<td>llyt  </td>
+</tr>
+<tr>
+<td>TableLayout</td>
+<td>Tlyt</td>
+<td>tlyt </td>
+</tr>
+<tr>
+<td>FrameLayout</td>
+<td>Flyt</td>
+<td>flyt</td>
+</tr>
+</tbody>
+</table>
 <h2 id="9-_图片的命名">9. 图片的命名</h2><p>name是模块的名称或功能的描述。</p>
 <p>图片名称一般由模块名称/功能描述 + 后缀组成，后缀是可选的。</p>
 <table>
@@ -213,70 +342,124 @@ public boolean <span class="function"><span class="title">isExist</span><span cl
 </tr>
 </tbody>
 </table>
-<p>后缀      |描述 |示例<br>-———|—-|—<br>无       |普通状态|login.png<br>_p      |按压状态|login_p.png<br>_c      |选中状态|login_c.png<br>_d      |不可用状态|login_d.png</p>
+<table>
+<thead>
+<tr>
+<th>后缀</th>
+<th>描述</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>无</td>
+<td>普通状态</td>
+<td>login.png</td>
+</tr>
+<tr>
+<td>_p</td>
+<td>按压状态</td>
+<td>login_p.png</td>
+</tr>
+<tr>
+<td>_c</td>
+<td>选中状态</td>
+<td>login_c.png</td>
+</tr>
+<tr>
+<td>_d</td>
+<td>不可用状态</td>
+<td>login_d.png</td>
+</tr>
+</tbody>
+</table>
 <h2 id="10-_其他资源命名">10. 其他资源命名</h2><p>遵循见名知意的原则，组成名称的单词必须全部小写，单词之间用下划线隔开。</p>
-<p>```</p>
-<string name="welcome">欢迎</string>
+<pre><code>&lt;string name=<span class="string">"welcome"</span>&gt;欢迎&lt;/string&gt;
+&lt;<span class="attribute">color</span> name=<span class="string">"white"</span>&gt;\<span class="hexcolor">#FFFFFF</span>&lt;/<span class="attribute">color</span>&gt;
+</code></pre><hr>
+<h1 id="注释">注释</h1><font color="red"><strong>养成良好的注释习惯，对提升自己的编程能力和团队合作能力有很大的益处。</strong></font>
 
-<p><color name="white">#FFFFFF</color><br>```</p>
-<hr>
-<h1 id="注释">注释</h1><p><font color="red"><strong>养成良好的注释习惯，对提升自己的编程能力和团队合作能力有很大的益处。</strong><font></font></font></p>
 <h2 id="1-_文件注释">1. 文件注释</h2><p>源文件的开头需要注释说明当前的文件信息，包括文件名、作者、版本信息、日期等。</p>
-<p>```<br>/**<br>-— * </p>
-<ul>
-<li>Copyright (C) 2007-2014, by HuaShengRun, Shenzhen, All rights reserved.<br>-— *<br>*</li>
-<li>File: RequestManager.java 作用及实现的功能描述</li>
-<li>Author: JiongBull</li>
-<li>Version: 1.0</li>
-<li>Create: 2014-8-10<br>*/<br>```<h2 id="2-_类注释">2. 类注释</h2></li>
-</ul>
-<p>在类的开头添加类信息的描述.</p>
-<p>```<br>/**</p>
-<ul>
-<li>管理Volley的Request, 使用之前需要调用init()进行初始化.<br>*/</li>
-</ul>
-<p>public class RequestManager {</p>
-<p>}<br>```</p>
-<h2 id="3-_方法注释">3. 方法注释</h2><p>一般情况下需要为每个方法添加注释，包括方法的功能描述，参数信息、返回值、异常信息等，有些约定俗成的方法可以不需要添加注释，请参考约定俗成的说明。</p>
-<p>```<br>/**</p>
-<ul>
-<li>输出日志.<br>*</li>
-<li>@param context Context</li>
-<li>@param logLevel 日志等级</li>
-<li>@param tag 标签</li>
-<li>@param content 输出内容</li>
-<li>@param throwable 异常信息, 若没有异常可为空<br>*/</li>
-</ul>
-<p>private static void trace(final Context context, final int logLevel,<br>                                                final String tag,<br>                                                final String content,<br>                                                final Throwable throwable) {</p>
-<p>…</p>
-<p>}<br>```</p>
-<h2 id="4-_域变量和常量注释">4. 域变量和常量注释</h2><p>```<br>/**</p>
-<ul>
-<li>日志的扩展名.<br>*/</li>
-</ul>
-<p>public static final String LOG_EXTENSION = “.log”;</p>
-<p>/**</p>
-<ul>
-<li>网络请求队列.<br>*/</li>
-</ul>
-<p>private RequestQueue mRequestQueue;<br>```</p>
-<h2 id="5-_其他注释">5. 其他注释</h2><p>```<br>单行注释</p>
-<p>view.setImageResource(defaultImageResId); // 无图片显示默认图片</p>
-<p>区块注释</p>
-<p>/* 网络图片添加渐变动画 */</p>
-<p>Resources resource = mContext.getResources();</p>
-<p>final TransitionDrawable transitionDrawable =<br>                new TransitionDrawable(new Drawable[] {<br>                    new ColorDrawable(android.R.color.transparent),<br>                    new BitmapDrawable(resource, bmpResponse)   });</p>
-<p>view.setBackgroundResource(defaultImageResId);<br>view.setImageDrawable(transitionDrawable);<br>transitionDrawable.startTransition(RequestManager.FADE_IN_TIME);<br>```</p>
-<h2 id="6-_XML注释">6. XML注释</h2><!-- Base application theme. -->
-<style name="AppTheme" parent="android:Theme.Holo.Light.NoActionBar">
-<!-- Customize your theme here. -->
-</style>
+<pre><code>/<span class="keyword">*</span><span class="keyword">*</span> 
+<span class="keyword">*</span> Copyright (C) 2007-2014, by HuaShengRun, Shenzhen, All rights reserved.
+<span class="keyword">*</span> 
+<span class="keyword">*</span>
+<span class="keyword">*</span> File: RequestManager.java 作用及实现的功能描述
+<span class="keyword">*</span> Author: JiongBull
+<span class="keyword">*</span> Version: 1.0
+<span class="keyword">*</span> Create: 2014-8-10
+<span class="keyword">*</span>/
+</code></pre><h2 id="2-_类注释">2. 类注释</h2><p>在类的开头添加类信息的描述.</p>
+<pre><code><span class="comment">/**
+* 管理Volley的Request, 使用之前需要调用init()进行初始化.
+*/</span>
 
-<hr>
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RequestManager</span> </span>{
+
+}
+</code></pre><h2 id="3-_方法注释">3. 方法注释</h2><p>一般情况下需要为每个方法添加注释，包括方法的功能描述，参数信息、返回值、异常信息等，有些约定俗成的方法可以不需要添加注释，请参考约定俗成的说明。</p>
+<pre><code><span class="comment"><span class="markdown">/**
+<span class="bullet">* </span>输出日志.
+<span class="bullet">*
+</span><span class="bullet">* </span>@param context Context
+<span class="bullet">* </span>@param logLevel 日志等级
+<span class="bullet">* </span>@param tag 标签
+<span class="bullet">* </span>@param content 输出内容
+<span class="bullet">* </span>@param throwable 异常信息, 若没有异常可为空
+*/</span></span>
+
+
+private <span class="literal">static</span> <span class="keyword">void</span> trace(<span class="keyword">final</span> Context context, <span class="keyword">final</span> <span class="built_in">int</span> logLevel, 
+                                                <span class="keyword">final</span> <span class="built_in">String</span> tag, 
+                                                <span class="keyword">final</span> <span class="built_in">String</span> content, 
+                                                <span class="keyword">final</span> Throwable throwable) {
+
+...
+
+}
+</code></pre><h2 id="4-_域变量和常量注释">4. 域变量和常量注释</h2><pre><code>/<span class="keyword">*</span><span class="keyword">*</span>
+<span class="keyword">*</span> 日志的扩展名.
+<span class="keyword">*</span>/
+
+public static final String LOG\_EXTENSION = <span class="string">".log"</span>;
+
+
+/<span class="keyword">*</span><span class="keyword">*</span>
+<span class="keyword">*</span> 网络请求队列.
+<span class="keyword">*</span>/
+
+private RequestQueue mRequestQueue;
+</code></pre><h2 id="5-_其他注释">5. 其他注释</h2><pre><code>单行注释
+
+view.setImageResource(defaultImageResId); <span class="comment">// 无图片显示默认图片</span>
+
+
+区块注释
+
+
+<span class="comment">/* 网络图片添加渐变动画 */</span>
+
+
+Resources resource = mContext.getResources();
+
+<span class="keyword">final</span> TransitionDrawable transitionDrawable =
+                <span class="keyword">new</span> TransitionDrawable(<span class="keyword">new</span> Drawable[] {
+                    <span class="keyword">new</span> ColorDrawable(android.R.<span class="built_in">color</span>.transparent),
+                    <span class="keyword">new</span> BitmapDrawable(resource, bmpResponse)   });
+
+view.setBackgroundResource(defaultImageResId);
+view.setImageDrawable(transitionDrawable);
+transitionDrawable.startTransition(RequestManager.FADE\_IN\_TIME);
+</code></pre><h2 id="6-_XML注释">6. XML注释</h2><pre><code><span class="comment">&lt;!-- Base application theme. --&gt;</span>
+<span class="tag">&lt;<span class="title">style</span> <span class="attribute">name</span>=<span class="value">"AppTheme"</span> <span class="attribute">parent</span>=<span class="value">"android:Theme.Holo.Light.NoActionBar"</span>&gt;</span><span class="css">
+&lt;!<span class="tag">--</span> <span class="tag">Customize</span> <span class="tag">your</span> <span class="tag">theme</span> <span class="tag">here</span>. <span class="tag">--</span>&gt;
+</span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+</code></pre><hr>
 <h1 id="约定俗成">约定俗成</h1><h2 id="1-_get_/_set_方法的注释">1. get / set 方法的注释</h2><p>通过IDE工具批量生成域变量的 get / set 方法可以不用注释。</p>
 <h2 id="2-_第三方库生成代码的注释">2. 第三方库生成代码的注释</h2><p>第三方库生成的代码可以不用注释，例如greenDao生成的代码。</p>
 <h2 id="3-_通用类的注释">3. 通用类的注释</h2><p>通用类的公共方法应全部添加注释。</p>
 <h2 id="4-_一般情况下的注释">4. 一般情况下的注释</h2><p>例如在activity、service等文件中，只需对关键的类变量进行注释，方法建议全部添加注释。</p>
+<hr>
 <p>References：<br><a href="http://blog.csdn.net/JiongBull/article/details/41514449" target="_blank" rel="external">http://blog.csdn.net/JiongBull/article/details/41514449</a><br><a href="https://github.com/ribot/android-guidelines/blob/master/project\_and\_code\_guidelines.md" target="_blank" rel="external">https://github.com/ribot/android-guidelines/blob/master/project\_and\_code\_guidelines.md</a></p>
 
       
