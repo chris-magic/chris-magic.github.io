@@ -52,39 +52,39 @@
 
 
 <meta name="description" content="开始之前请详细阅读并遵守Android开发者代码风格指南
+统一采用UTF-8 编码
 不要使用拼音命名
 名称应简洁而富于描述，使用完整单词，避免使用缩写除非该缩写被更广泛使用，例如URL、HTML）
 代码中不要出现中文标点字符，例如：‘，’、‘：’
 注释中可以书写中文标点字符，便于阅读
 注释遵循英文写作习惯，英文标点符号后空一格，避免句子紧凑
 颜色色值的字母必须全部大写
-布局文件中不要出现硬代码，无法国家化
-字体大小使用sp">
+布局文件中不要出现硬代码，无">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android-代码规范">
 <meta property="og:url" content="http://yoursite.com/2015/12/04/Android-代码规范/index.html">
 <meta property="og:site_name" content="chris's blog">
 <meta property="og:description" content="开始之前请详细阅读并遵守Android开发者代码风格指南
+统一采用UTF-8 编码
 不要使用拼音命名
 名称应简洁而富于描述，使用完整单词，避免使用缩写除非该缩写被更广泛使用，例如URL、HTML）
 代码中不要出现中文标点字符，例如：‘，’、‘：’
 注释中可以书写中文标点字符，便于阅读
 注释遵循英文写作习惯，英文标点符号后空一格，避免句子紧凑
 颜色色值的字母必须全部大写
-布局文件中不要出现硬代码，无法国家化
-字体大小使用sp">
-<meta property="og:updated_time" content="2015-12-07T06:18:28.000Z">
+布局文件中不要出现硬代码，无">
+<meta property="og:updated_time" content="2015-12-09T03:50:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android-代码规范">
 <meta name="twitter:description" content="开始之前请详细阅读并遵守Android开发者代码风格指南
+统一采用UTF-8 编码
 不要使用拼音命名
 名称应简洁而富于描述，使用完整单词，避免使用缩写除非该缩写被更广泛使用，例如URL、HTML）
 代码中不要出现中文标点字符，例如：‘，’、‘：’
 注释中可以书写中文标点字符，便于阅读
 注释遵循英文写作习惯，英文标点符号后空一格，避免句子紧凑
 颜色色值的字母必须全部大写
-布局文件中不要出现硬代码，无法国家化
-字体大小使用sp">
+布局文件中不要出现硬代码，无">
 
 
 
@@ -293,11 +293,12 @@
       
         <span itemprop="articleBody"><ul>
 <li><a href="http://source.android.com/source/code-style.html" target="_blank" rel="external">开始之前请详细阅读并遵守Android开发者代码风格指南</a></li>
+<li>统一采用UTF-8 编码</li>
 <li><strong>不要使用拼音命名</strong></li>
 <li>名称应简洁而富于描述，<strong>使用完整单词，避免使用缩写</strong>除非该缩写被更广泛使用，例如URL、HTML）</li>
 <li>代码中不要出现中文标点字符，例如：‘，’、‘：’</li>
 <li>注释中可以书写中文标点字符，便于阅读</li>
-<li>注释遵循英文写作习惯，英文标点符号后空一格，避免句子紧凑</li>
+<li>注释遵循英文写作习惯，<strong><em>英文标点符号后空一格</em></strong>，避免句子紧凑</li>
 <li><strong>颜色色值的字母必须全部大写</strong></li>
 <li>布局文件中不要出现硬代码，无法国家化</li>
 <li>字体大小使用sp ,其他的使用 dp.</li>
@@ -307,32 +308,39 @@
 <li><strong>尽可能使用静态内部类而不是非静态内部类。</strong>每一个非静态内部类实例都会持有一个外部类的引用，若该引用是 Activity 的引用，那么该 Activity 在被销毁时将无法被回收。如果你的静态内部类需要一个相关 Activity 的引用以确保功能能够正常运行，那么你得确保你在对象中使用的是一个 Activity 的弱引用，否则你的 Activity 将会发生意外的内存泄漏。</li>
 </ul>
 <hr>
-<h1 id="命名规则">命名规则</h1><h2 id="1-_包命名">1. 包命名</h2><p>包名由小写的字母组成，默认以 <em>com.ecdj</em> 开头，然后接上根据功能划分的模块名。</p>
+<h1 id="一、命名规则">一、命名规则</h1><h2 id="1-_包命名">1. 包命名</h2><p>包名由小写的字母组成，默认以 <em>com.ecdj</em> 开头，然后接上根据功能划分的模块名。</p>
 <pre><code>com<span class="class">.ecdj</span><span class="class">.ui</span>
 com<span class="class">.ecdj</span><span class="class">.widget</span>
 </code></pre><h2 id="2-_类和接口命名">2. 类和接口命名</h2><p>名称的首字母需要大写，如果由多个单词组成，那么每个单词的首字母需要大写，其他字母小写。</p>
-<pre><code><span class="class"><span class="keyword">class</span> <span class="title">LoginActivity</span></span>
+<pre><code>activity , 命名以Activity为后缀 , 如: <span class="class"><span class="keyword">class</span> <span class="title">LoginActivity</span></span>
+fragment , 命名以Fragment为后缀 , 如: ShareDialogFragment
+工具类 , 命名以Util为后缀
 <span class="class"><span class="keyword">interface</span> <span class="title">OnClickListener</span></span>
-</code></pre><h2 id="3-_方法的命名">3. 方法的命名</h2><p>采用<em>驼峰命名法</em>来命名。</p>
-<pre><code>public String <span class="function"><span class="title">getName</span><span class="params">()</span></span>
-public boolean <span class="function"><span class="title">isExist</span><span class="params">()</span></span>
-</code></pre><h2 id="4-_变量的命名">4. 变量的命名</h2><blockquote>
+</code></pre><h2 id="3-_方法的命名">3. 方法的命名</h2><p>采用<strong><em>驼峰命名法</em></strong>来命名。方法名应该是动词或者是对功能的一个描述 , 第一个单词的首字母小写 , 其它单词的首字母大写</p>
+<pre><code>初始化方法 , 命名以init开头 , initView
+按钮点击方法 , 命名以<span class="keyword">to</span>开头 , toLogin
+通过异步加载数据的方法 , 命名以load开头 , loadData
+布尔型的判断方法 , 命名以<span class="keyword">is</span> , <span class="keyword">has</span>或者具有逻辑意义的单词(check,<span class="keyword">equals</span>)开头 , isEmpty
+</code></pre><h2 id="4-_变量的命名规则">4. 变量的命名规则</h2><blockquote>
 <p>Non-public, non-static field names start with m.<br>非公共的、非静态的域变量用m前缀.<br>Static field names start with s.<br>静态域变量用s前缀.<br>Other fields start with a lower case letter.</p>
 </blockquote>
 <p>例如:</p>
 <pre><code><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> </span>{
-    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> SOME_CONSTANT = <span class="number">42</span>;
-    <span class="keyword">public</span> <span class="keyword">int</span> publicField;
-    <span class="keyword">private</span> <span class="keyword">static</span> MyClass sSingleton;
-    <span class="keyword">int</span> mPackagePrivate;
+    <span class="comment">// 常量需要声明为final static形式，组成名称的单词必须全部大写，单词之间用下划线隔开。</span>
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> SOME_CONSTANT = <span class="number">42</span>;  <span class="comment">// 常量</span>
+
+    <span class="keyword">public</span> <span class="keyword">int</span> publicField;                <span class="comment">// 公有的成员变量</span>
+
+    <span class="keyword">private</span> <span class="keyword">static</span> MyClass sSingleton; <span class="comment">// 静态成员变量</span>
+
+    <span class="keyword">int</span> mPackagePrivate;                <span class="comment">// 非静态成员变量</span>
     <span class="keyword">private</span> <span class="keyword">int</span> mPrivate;
     <span class="keyword">protected</span> <span class="keyword">int</span> mProtected;
 }
-</code></pre><h2 id="5-_常量的命名">5. 常量的命名</h2><p>常量需要声明为final static形式，组成名称的单词必须全部大写，单词之间用下划线隔开。</p>
-<pre><code><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> FADE_IN_TIME = <span class="number">200</span>;
-</code></pre><h2 id="6-_异常的命名">6. 异常的命名</h2><p>名称必须以Exception结尾。</p>
+</code></pre><h2 id="5-_异常的命名">5. 异常的命名</h2><p>名称必须以Exception结尾。</p>
 <pre><code>NullPointerException
-</code></pre><h2 id="7-_布局的命名_xml的命名">7. 布局的命名 xml的命名</h2><p>name是 <strong><font color="red">模块的名称</font>+<font color="blue">功能的描述</font></strong> ，单词必须全部小写，单词之间用下划线隔开。</p>
+</code></pre><h2 id="6-_布局的命名_xml的命名">6. 布局的命名 xml的命名</h2><p>name是 <strong><font color="red">模块的名称</font>+<font color="blue">功能的描述</font></strong> ，单词必须全部小写，单词之间用下划线隔开。</p>
+<p>组件类型{范围|模块}功能，范围可选，只在有明确定义的范围内才需要加上</p>
 <table>
 <thead>
 <tr>
@@ -367,9 +375,19 @@ public boolean <span class="function"><span class="title">isExist</span><span cl
 <td style="text-align:center">dialog_module_name.xml</td>
 <td style="text-align:right">item_home_contact.xml</td>
 </tr>
+<tr>
+<td>ListListView的HeaderView</td>
+<td style="text-align:center"></td>
+<td style="text-align:right">header_list_xxxx.xml</td>
+</tr>
+<tr>
+<td>ListListView的FooterView</td>
+<td style="text-align:center"></td>
+<td style="text-align:right">footer_list_xxxx.xml</td>
+</tr>
 </tbody>
 </table>
-<h2 id="8-_ID的命名">8. ID的命名</h2><p>组成名称的单词必须全部小写，单词之间用下划线隔开，名称不需要复杂的层级定位，只需要准确描述所代表控件的功能作用即可，通常我们在名称前使用控件类型的缩写前缀来避免重复起名的麻烦。例如：<strong><font color="red">控件类型</font>+<font color="blue">模块名</font>+控件名字</strong></p>
+<h2 id="8-_控件ID的命名">8. 控件ID的命名</h2><p>组成名称的单词必须全部小写，单词之间用下划线隔开，名称不需要复杂的层级定位，只需要准确描述所代表控件的功能作用即可，通常我们在名称前使用控件类型的缩写前缀来避免重复起名的麻烦。例如：<strong><font color="red">控件类型</font>+<font color="blue">{模块名|范围}</font>+意义</strong></p>
 <p>name是模块的名称或功能的描述。</p>
 <table>
 <thead>
@@ -402,8 +420,7 @@ public boolean <span class="function"><span class="title">isExist</span><span cl
 </tr>
 </tbody>
 </table>
-<font color="red"> <strong> 控件类型缩写对照表 </strong></font>
-
+<p><font color="red"> <strong> 控件类型缩写对照表 </strong></font><br>Layout 统一所写为： <strong><em>lyt</em></strong></p>
 <table>
 <thead>
 <tr>
@@ -496,7 +513,7 @@ public boolean <span class="function"><span class="title">isExist</span><span cl
 </tbody>
 </table>
 <h2 id="9-_图片的命名">9. 图片的命名</h2><p>name是模块的名称或功能的描述。</p>
-<p>图片名称一般由模块名称/功能描述 + 后缀组成，后缀是可选的。</p>
+<p>前缀_[功能描述|范围|后缀]，控件、范围、后缀可选，但功能描述和范围至少要有一个。</p>
 <table>
 <thead>
 <tr>
@@ -516,69 +533,44 @@ public boolean <span class="function"><span class="title">isExist</span><span cl
 <td>背景图片</td>
 <td>bg_title.png</td>
 </tr>
-<tr>
-<td>sl_</td>
-<td>状态图片</td>
-<td>sl_button.png</td>
-</tr>
 </tbody>
 </table>
-<table>
-<thead>
-<tr>
-<th>后缀</th>
-<th>描述</th>
-<th>示例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>无</td>
-<td>普通状态</td>
-<td>login.png</td>
-</tr>
-<tr>
-<td>_p</td>
-<td>按压状态</td>
-<td>login_p.png</td>
-</tr>
-<tr>
-<td>_c</td>
-<td>选中状态</td>
-<td>login_c.png</td>
-</tr>
-<tr>
-<td>_d</td>
-<td>不可用状态</td>
-<td>login_d.png</td>
-</tr>
-</tbody>
-</table>
-<h2 id="10-_其他资源命名">10. 其他资源命名</h2><p>遵循见名知意的原则，组成名称的单词必须全部小写，单词之间用下划线隔开。</p>
+<pre><code>图标类，添加ic前缀
+背景类，添加bg前缀
+分隔类，添加<span class="keyword">div</span>前缀
+
+区分状态时，默认状态，添加normal后缀
+区分状态时，按下时的状态，添加pressed后缀
+区分状态时，选中时的状态，添加selected后缀
+区分状态时，不可用时的状态，添加disable后缀
+
+多种状态的，添加<span class="keyword">selector</span>后缀（一般为ListView的<span class="keyword">selector</span>或按钮的<span class="keyword">selector</span>）
+</code></pre><h2 id="10-_其他资源命名">10. 其他资源命名</h2><p>遵循见名知意的原则，组成名称的单词必须全部小写，单词之间用下划线隔开。</p>
 <pre><code>&lt;string name=<span class="string">"welcome"</span>&gt;欢迎&lt;/string&gt;
 &lt;<span class="attribute">color</span> name=<span class="string">"white"</span>&gt;\<span class="hexcolor">#FFFFFF</span>&lt;/<span class="attribute">color</span>&gt;
 </code></pre><hr>
-<h1 id="注释">注释</h1><font color="red"><strong>养成良好的注释习惯，对提升自己的编程能力和团队合作能力有很大的益处。</strong></font>
-
-<h2 id="1-_文件注释">1. 文件注释</h2><p>源文件的开头需要注释说明当前的文件信息，包括文件名、作者、版本信息、日期等。</p>
+<h1 id="二、注释">二、注释</h1><p><font color="red"><strong>养成良好的注释习惯，对提升自己的编程能力和团队合作能力有很大的益处。</strong></font>一般情况下，源程序有效注释量必须在20％以上。</p>
+<h5 id="说明：注释的原则是有助于对程序的阅读理解，在该加的地方都加了，注释不宜太多也不能太少，注释语言必须准确、易懂、简洁。">说明：注释的原则是有助于对程序的阅读理解，在该加的地方都加了，注释不宜太多也不能太少，注释语言必须准确、易懂、简洁。</h5><h2 id="1-_文件注释">1. 文件注释</h2><p>源文件的开头需要注释说明当前的文件信息，包括文件名、作者、版本信息、日期等。</p>
 <pre><code>/<span class="keyword">*</span><span class="keyword">*</span> 
-<span class="keyword">*</span> Copyright (C) 2007-2014, by HuaShengRun, Shenzhen, All rights reserved.
+<span class="keyword">*</span> Copyright (C) 2007-2015, by HuaShengRun, Shenzhen, All rights reserved.
 <span class="keyword">*</span> 
 <span class="keyword">*</span>
 <span class="keyword">*</span> File: RequestManager.java 作用及实现的功能描述
 <span class="keyword">*</span> Author: JiongBull
 <span class="keyword">*</span> Version: 1.0
-<span class="keyword">*</span> Create: 2014-8-10
+<span class="keyword">*</span> Create: 2015-8-10
 <span class="keyword">*</span>/
-</code></pre><h2 id="2-_类注释">2. 类注释</h2><p>在类的开头添加类信息的描述.</p>
-<pre><code><span class="comment">/**
-* 管理Volley的Request, 使用之前需要调用init()进行初始化.
-*/</span>
-
-<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RequestManager</span> </span>{
-
-}
-</code></pre><h2 id="3-_方法注释">3. 方法注释</h2><p>一般情况下需要为每个方法添加注释，包括方法的功能描述，参数信息、返回值、异常信息等，有些约定俗成的方法可以不需要添加注释，请参考约定俗成的说明。</p>
+</code></pre><h2 id="2-_类注释">2. 类注释</h2><p>类和接口统一添加javadoc , 格式如下</p>
+<pre><code>/<span class="keyword">*</span><span class="keyword">*</span>
+<span class="keyword">*</span> [类或接口的描述信息]
+<span class="keyword">*</span>
+<span class="keyword">*</span> <span class="comment">@author ${USER}</span>
+<span class="keyword">*</span> <span class="comment">@date ${DATE}</span>
+<span class="keyword">*</span>/
+</code></pre><h2 id="3-_方法注释">3. 方法注释</h2><p>下面几种方法，都必须添加javadoc注释，说明该方法的用途和参数说明，以及返回值、异常信息等。</p>
+<blockquote>
+<p>1.接口中定义的所有方法<br>2.抽象类中自定义的抽象方法<br>3.抽象父类的自定义公用方法<br>4.工具类的公用方法</p>
+</blockquote>
 <pre><code><span class="comment"><span class="markdown">/**
 <span class="bullet">* </span>输出日志.
 <span class="bullet">*
@@ -588,8 +580,6 @@ public boolean <span class="function"><span class="title">isExist</span><span cl
 <span class="bullet">* </span>@param content 输出内容
 <span class="bullet">* </span>@param throwable 异常信息, 若没有异常可为空
 */</span></span>
-
-
 private <span class="literal">static</span> <span class="keyword">void</span> trace(<span class="keyword">final</span> Context context, <span class="keyword">final</span> <span class="built_in">int</span> logLevel, 
                                                 <span class="keyword">final</span> <span class="built_in">String</span> tag, 
                                                 <span class="keyword">final</span> <span class="built_in">String</span> content, 
@@ -598,18 +588,24 @@ private <span class="literal">static</span> <span class="keyword">void</span> tr
 ...
 
 }
-</code></pre><h2 id="4-_域变量和常量注释">4. 域变量和常量注释</h2><pre><code>/<span class="keyword">*</span><span class="keyword">*</span>
-<span class="keyword">*</span> 日志的扩展名.
-<span class="keyword">*</span>/
+</code></pre><h2 id="4-_域变量和常量注释">4. 域变量和常量注释</h2><p>下面几种情况下的常量和变量，都要添加注释说明，优先采用在上方添加注释。</p>
+<blockquote>
+<p>1.接口中定义的所有常量<br>2.公有类的公有常量<br>3.枚举类定义的所有枚举常量<br>4.实体类的所有属性变量</p>
+</blockquote>
+<pre><code><span class="comment">/**
+* 现金券
+**/</span>
+<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> TYPE_CASH = <span class="number">1</span>;
 
-public static final String LOG\_EXTENSION = <span class="string">".log"</span>;
+<span class="comment">/**
+* 抵扣券
+**/</span>
+<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> TYPE_DEBIT = <span class="number">2</span>;
 
-
-/<span class="keyword">*</span><span class="keyword">*</span>
-<span class="keyword">*</span> 网络请求队列.
-<span class="keyword">*</span>/
-
-private RequestQueue mRequestQueue;
+<span class="comment">/**
+* 抵扣券
+**/</span>  
+<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> TYPE_DISCOUNT = <span class="number">3</span>
 </code></pre><h2 id="5-_其他注释">5. 其他注释</h2><pre><code>单行注释
 
 view.setImageResource(defaultImageResId); <span class="comment">// 无图片显示默认图片</span>
@@ -789,7 +785,7 @@ transitionDrawable.startTransition(RequestManager.FADE\_IN\_TIME);
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#命名规则"><span class="nav-number">1.</span> <span class="nav-text">命名规则</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-_包命名"><span class="nav-number">1.1.</span> <span class="nav-text">1. 包命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-_类和接口命名"><span class="nav-number">1.2.</span> <span class="nav-text">2. 类和接口命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-_方法的命名"><span class="nav-number">1.3.</span> <span class="nav-text">3. 方法的命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-_变量的命名"><span class="nav-number">1.4.</span> <span class="nav-text">4. 变量的命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-_常量的命名"><span class="nav-number">1.5.</span> <span class="nav-text">5. 常量的命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-_异常的命名"><span class="nav-number">1.6.</span> <span class="nav-text">6. 异常的命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-_布局的命名_xml的命名"><span class="nav-number">1.7.</span> <span class="nav-text">7. 布局的命名 xml的命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-_ID的命名"><span class="nav-number">1.8.</span> <span class="nav-text">8. ID的命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-_图片的命名"><span class="nav-number">1.9.</span> <span class="nav-text">9. 图片的命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-_其他资源命名"><span class="nav-number">1.10.</span> <span class="nav-text">10. 其他资源命名</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#注释"><span class="nav-number">2.</span> <span class="nav-text">注释</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-_文件注释"><span class="nav-number">2.1.</span> <span class="nav-text">1. 文件注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-_类注释"><span class="nav-number">2.2.</span> <span class="nav-text">2. 类注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-_方法注释"><span class="nav-number">2.3.</span> <span class="nav-text">3. 方法注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-_域变量和常量注释"><span class="nav-number">2.4.</span> <span class="nav-text">4. 域变量和常量注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-_其他注释"><span class="nav-number">2.5.</span> <span class="nav-text">5. 其他注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-_XML注释"><span class="nav-number">2.6.</span> <span class="nav-text">6. XML注释</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#约定俗成"><span class="nav-number">3.</span> <span class="nav-text">约定俗成</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-_get_/_set_方法的注释"><span class="nav-number">3.1.</span> <span class="nav-text">1. get / set 方法的注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-_第三方库生成代码的注释"><span class="nav-number">3.2.</span> <span class="nav-text">2. 第三方库生成代码的注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-_通用类的注释"><span class="nav-number">3.3.</span> <span class="nav-text">3. 通用类的注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-_一般情况下的注释"><span class="nav-number">3.4.</span> <span class="nav-text">4. 一般情况下的注释</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、命名规则"><span class="nav-number">1.</span> <span class="nav-text">一、命名规则</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-_包命名"><span class="nav-number">1.1.</span> <span class="nav-text">1. 包命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-_类和接口命名"><span class="nav-number">1.2.</span> <span class="nav-text">2. 类和接口命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-_方法的命名"><span class="nav-number">1.3.</span> <span class="nav-text">3. 方法的命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-_变量的命名规则"><span class="nav-number">1.4.</span> <span class="nav-text">4. 变量的命名规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-_异常的命名"><span class="nav-number">1.5.</span> <span class="nav-text">5. 异常的命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-_布局的命名_xml的命名"><span class="nav-number">1.6.</span> <span class="nav-text">6. 布局的命名 xml的命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-_控件ID的命名"><span class="nav-number">1.7.</span> <span class="nav-text">8. 控件ID的命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-_图片的命名"><span class="nav-number">1.8.</span> <span class="nav-text">9. 图片的命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-_其他资源命名"><span class="nav-number">1.9.</span> <span class="nav-text">10. 其他资源命名</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、注释"><span class="nav-number">2.</span> <span class="nav-text">二、注释</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#说明：注释的原则是有助于对程序的阅读理解，在该加的地方都加了，注释不宜太多也不能太少，注释语言必须准确、易懂、简洁。"><span class="nav-number">2.0.0.0.1.</span> <span class="nav-text">说明：注释的原则是有助于对程序的阅读理解，在该加的地方都加了，注释不宜太多也不能太少，注释语言必须准确、易懂、简洁。</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-_文件注释"><span class="nav-number">2.1.</span> <span class="nav-text">1. 文件注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-_类注释"><span class="nav-number">2.2.</span> <span class="nav-text">2. 类注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-_方法注释"><span class="nav-number">2.3.</span> <span class="nav-text">3. 方法注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-_域变量和常量注释"><span class="nav-number">2.4.</span> <span class="nav-text">4. 域变量和常量注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-_其他注释"><span class="nav-number">2.5.</span> <span class="nav-text">5. 其他注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-_XML注释"><span class="nav-number">2.6.</span> <span class="nav-text">6. XML注释</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#约定俗成"><span class="nav-number">3.</span> <span class="nav-text">约定俗成</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-_get_/_set_方法的注释"><span class="nav-number">3.1.</span> <span class="nav-text">1. get / set 方法的注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-_第三方库生成代码的注释"><span class="nav-number">3.2.</span> <span class="nav-text">2. 第三方库生成代码的注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-_通用类的注释"><span class="nav-number">3.3.</span> <span class="nav-text">3. 通用类的注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-_一般情况下的注释"><span class="nav-number">3.4.</span> <span class="nav-text">4. 一般情况下的注释</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
