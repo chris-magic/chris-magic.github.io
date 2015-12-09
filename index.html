@@ -738,11 +738,42 @@ transitionDrawable.startTransition(RequestManager.FADE\_IN\_TIME);
 <span class="tag">&lt;<span class="title">style</span> <span class="attribute">name</span>=<span class="value">"AppTheme"</span> <span class="attribute">parent</span>=<span class="value">"android:Theme.Holo.Light.NoActionBar"</span>&gt;</span><span class="css">
 &lt;!<span class="tag">--</span> <span class="tag">Customize</span> <span class="tag">your</span> <span class="tag">theme</span> <span class="tag">here</span>. <span class="tag">--</span>&gt;
 </span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
-</code></pre><hr>
-<h1 id="约定俗成">约定俗成</h1><h2 id="1-_get_/_set_方法的注释">1. get / set 方法的注释</h2><p>通过IDE工具批量生成域变量的 get / set 方法可以不用注释。</p>
+</code></pre><h2 id="约定俗成的一些注释原则">约定俗成的一些注释原则</h2><h2 id="1-_get_/_set_方法的注释">1. get / set 方法的注释</h2><p>通过IDE工具批量生成域变量的 get / set 方法可以不用注释。</p>
 <h2 id="2-_第三方库生成代码的注释">2. 第三方库生成代码的注释</h2><p>第三方库生成的代码可以不用注释，例如greenDao生成的代码。</p>
 <h2 id="3-_通用类的注释">3. 通用类的注释</h2><p>通用类的公共方法应全部添加注释。</p>
 <h2 id="4-_一般情况下的注释">4. 一般情况下的注释</h2><p>例如在activity、service等文件中，只需对关键的类变量进行注释，方法建议全部添加注释。</p>
+<hr>
+<h1 id="三、书写，排版">三、书写，排版</h1><h2 id="1-_前大括号不单独开行">1. 前大括号不单独开行</h2><pre><code>public <span class="type">void</span> <span class="keyword">method</span>()
+{    //bad
+}  
+
+public <span class="type">void</span> <span class="keyword">method</span>(){    //good
+}
+</code></pre><h2 id="2-_空行加入原则">2. 空行加入原则</h2><blockquote>
+<p>两个方法之间;<br>方法内的两个逻辑段之间;<br>方法内的局部变量和方法的第一条逻辑语句之间;<br>常量和变量之间;<br>相对独立的程序块之间必须加空行;</p>
+</blockquote>
+<p>示例: 如下例子不符合规范</p>
+<pre><code><span class="keyword">if</span>(!validate(ni)){...<span class="comment">//code</span>
+}
+repCode=ssnData[<span class="keyword">index</span>].rep_code;
+repCount=ssnData[<span class="keyword">index</span>].rep_count;
+</code></pre><p>应如下书写</p>
+<pre><code><span class="keyword">if</span>(!validate(ni)){ 
+...<span class="comment">//code</span>
+}
+repCode=ssnData[<span class="keyword">index</span>].rep_code;
+repCount=ssnData[<span class="keyword">index</span>].rep_count;
+</code></pre><h2 id="3-一行声明一个变量，不要一行声明多个变量，这样有利于写注释。">3.一行声明一个变量，不要一行声明多个变量，这样有利于写注释。</h2><pre><code>/<span class="keyword">*</span><span class="keyword">*</span>
+<span class="keyword">*</span> 参数1
+<span class="keyword">*</span>/
+private String param1; 
+
+/<span class="keyword">*</span><span class="keyword">*</span>
+<span class="keyword">*</span> 参数2
+<span class="keyword">*</span>/
+private String param2; 
+</code></pre><h2 id="4-使用快捷键进行代码自动格式化。">4.使用快捷键进行代码自动格式化。</h2><p>Windows：CTRL+ALT+L</p>
+<p>Mac：OPTION+COMMAND+L</p>
 <hr>
 <p>References：<br><a href="http://blog.csdn.net/JiongBull/article/details/41514449" target="_blank" rel="external">http://blog.csdn.net/JiongBull/article/details/41514449</a><br><a href="https://github.com/ribot/android-guidelines/blob/master/project\_and\_code\_guidelines.md" target="_blank" rel="external">https://github.com/ribot/android-guidelines/blob/master/project\_and\_code\_guidelines.md</a></p>
 
