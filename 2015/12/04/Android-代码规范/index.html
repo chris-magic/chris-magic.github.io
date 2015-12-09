@@ -73,7 +73,7 @@
 注释遵循英文写作习惯，英文标点符号后空一格，避免句子紧凑
 颜色色值的字母必须全部大写
 布局文件中不要出现硬代码，无">
-<meta property="og:updated_time" content="2015-12-09T06:38:10.000Z">
+<meta property="og:updated_time" content="2015-12-09T06:45:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android-代码规范">
 <meta name="twitter:description" content="开始之前请详细阅读并遵守Android开发者代码风格指南
@@ -305,6 +305,8 @@
 <li><strong>日志输出统一使用自定义logcat</strong></li>
 <li><strong>所有Activity 统一继承自定义 BaseActivity</strong></li>
 <li>原生图片放在mipmap里面，而drawable主要放一些自定义形状和按钮变色之类的xml.</li>
+<li>程序块采用缩进风格编写 , 缩进的空格数为4个。</li>
+<li>颜色统一于colors中定义 , 避免直接引用系统颜色(transparent除外)。</li>
 <li><strong>尽可能使用静态内部类而不是非静态内部类。</strong>每一个非静态内部类实例都会持有一个外部类的引用，若该引用是 Activity 的引用，那么该 Activity 在被销毁时将无法被回收。如果你的静态内部类需要一个相关 Activity 的引用以确保功能能够正常运行，那么你得确保你在对象中使用的是一个 Activity 的弱引用，否则你的 Activity 将会发生意外的内存泄漏。</li>
 </ul>
 <hr>
@@ -387,7 +389,7 @@ fragment , 命名以Fragment为后缀 , 如: ShareDialogFragment
 </tr>
 </tbody>
 </table>
-<h2 id="8-_控件ID的命名">8. 控件ID的命名</h2><p>组成名称的单词必须全部小写，单词之间用下划线隔开，名称不需要复杂的层级定位，只需要准确描述所代表控件的功能作用即可，通常我们在名称前使用控件类型的缩写前缀来避免重复起名的麻烦。例如：<strong><font color="red">控件类型</font>+<font color="blue">{模块名|范围}</font>+意义</strong></p>
+<h2 id="7-_控件ID的命名">7. 控件ID的命名</h2><p>组成名称的单词必须全部小写，单词之间用下划线隔开，名称不需要复杂的层级定位，只需要准确描述所代表控件的功能作用即可，通常我们在名称前使用控件类型的缩写前缀来避免重复起名的麻烦。例如：<strong><font color="red">控件类型</font>+<font color="blue">{模块名|范围}</font>+意义</strong></p>
 <p>name是模块的名称或功能的描述。</p>
 <table>
 <thead>
@@ -512,7 +514,7 @@ fragment , 命名以Fragment为后缀 , 如: ShareDialogFragment
 </tr>
 </tbody>
 </table>
-<h2 id="9-_图片的命名">9. 图片的命名</h2><p>name是模块的名称或功能的描述。</p>
+<h2 id="8-_图片的命名">8. 图片的命名</h2><p>name是模块的名称或功能的描述。</p>
 <p>前缀_[功能描述|范围|后缀]，控件、范围、后缀可选，但功能描述和范围至少要有一个。</p>
 <table>
 <thead>
@@ -545,7 +547,7 @@ fragment , 命名以Fragment为后缀 , 如: ShareDialogFragment
 区分状态时，不可用时的状态，添加disable后缀
 
 多种状态的，添加<span class="keyword">selector</span>后缀（一般为ListView的<span class="keyword">selector</span>或按钮的<span class="keyword">selector</span>）
-</code></pre><h2 id="10-_其他资源命名">10. 其他资源命名</h2><p>遵循见名知意的原则，组成名称的单词必须全部小写，单词之间用下划线隔开。</p>
+</code></pre><h2 id="9-_其他资源命名">9. 其他资源命名</h2><p>遵循见名知意的原则，组成名称的单词必须全部小写，单词之间用下划线隔开。</p>
 <pre><code>&lt;string name=<span class="string">"welcome"</span>&gt;欢迎&lt;/string&gt;
 &lt;<span class="attribute">color</span> name=<span class="string">"white"</span>&gt;\<span class="hexcolor">#FFFFFF</span>&lt;/<span class="attribute">color</span>&gt;
 </code></pre><hr>
@@ -654,6 +656,7 @@ repCount=ssnData[<span class="keyword">index</span>].rep_count;
 <pre><code><span class="keyword">if</span>(!validate(ni)){ 
 ...<span class="comment">//code</span>
 }
+
 repCode=ssnData[<span class="keyword">index</span>].rep_code;
 repCount=ssnData[<span class="keyword">index</span>].rep_count;
 </code></pre><h2 id="3-一行声明一个变量，不要一行声明多个变量，这样有利于写注释。">3.一行声明一个变量，不要一行声明多个变量，这样有利于写注释。</h2><pre><code>/<span class="keyword">*</span><span class="keyword">*</span>
@@ -667,7 +670,18 @@ private String param1;
 private String param2; 
 </code></pre><h2 id="4-使用快捷键进行代码自动格式化。">4.使用快捷键进行代码自动格式化。</h2><p>Windows：CTRL+ALT+L</p>
 <p>Mac：OPTION+COMMAND+L</p>
-<hr>
+<h2 id="5-_较长的语句(100字符)要分成多行书写_,_长表达式要在低优先级操作符处划分新行_,_操作符放在新行之首_,_划分出的新行要进行适当的缩进_,_使排版整齐">5. 较长的语句(100字符)要分成多行书写 , 长表达式要在低优先级操作符处划分新行 , 操作符放在新行之首 , 划分出的新行要进行适当的缩进 , 使排版整齐</h2><pre><code>示例 :
+permCountMsg=NO7_TO_STAT_PERM_COUNT_LEN
+　　　　　　　　+STAT_SIZE_PER_FRAM*sizeOf(UL);
+actTaskTab<span class="string">[frame_id * STAT_TASK_CHECK_NUMBER + index]</span>.occupied
+　　　　= statPoi<span class="string">[index]</span>.occupied;
+</code></pre><h2 id="4-_if、for、do、while、case、switch、default等语句自占一行，且if、for、do、while等语句的执行语句部分无论多少都要加括号{}。">4. if、for、do、while、case、switch、default等语句自占一行，且if、for、do、while等语句的执行语句部分无论多少都要加括号{}。</h2><pre><code>示例 : 如下例子不规范
+<span class="keyword">if</span>(userCr==<span class="keyword">null</span>) <span class="keyword">return</span>;
+应如下书写
+<span class="keyword">if</span>(userCr==<span class="keyword">null</span>){
+　　<span class="keyword">return</span>;
+}
+</code></pre><hr>
 <p>References：<br><a href="http://blog.csdn.net/JiongBull/article/details/41514449" target="_blank" rel="external">http://blog.csdn.net/JiongBull/article/details/41514449</a><br><a href="https://github.com/ribot/android-guidelines/blob/master/project\_and\_code\_guidelines.md" target="_blank" rel="external">https://github.com/ribot/android-guidelines/blob/master/project\_and\_code\_guidelines.md</a></p>
 </span>
       
@@ -816,7 +830,7 @@ private String param2;
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、命名规则"><span class="nav-number">1.</span> <span class="nav-text">一、命名规则</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-_包命名"><span class="nav-number">1.1.</span> <span class="nav-text">1. 包命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-_类和接口命名"><span class="nav-number">1.2.</span> <span class="nav-text">2. 类和接口命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-_方法的命名"><span class="nav-number">1.3.</span> <span class="nav-text">3. 方法的命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-_变量的命名规则"><span class="nav-number">1.4.</span> <span class="nav-text">4. 变量的命名规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-_异常的命名"><span class="nav-number">1.5.</span> <span class="nav-text">5. 异常的命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-_布局的命名_xml的命名"><span class="nav-number">1.6.</span> <span class="nav-text">6. 布局的命名 xml的命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-_控件ID的命名"><span class="nav-number">1.7.</span> <span class="nav-text">8. 控件ID的命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-_图片的命名"><span class="nav-number">1.8.</span> <span class="nav-text">9. 图片的命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-_其他资源命名"><span class="nav-number">1.9.</span> <span class="nav-text">10. 其他资源命名</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、注释"><span class="nav-number">2.</span> <span class="nav-text">二、注释</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#说明：注释的原则是有助于对程序的阅读理解，在该加的地方都加了，注释不宜太多也不能太少，注释语言必须准确、易懂、简洁。"><span class="nav-number">2.0.0.0.1.</span> <span class="nav-text">说明：注释的原则是有助于对程序的阅读理解，在该加的地方都加了，注释不宜太多也不能太少，注释语言必须准确、易懂、简洁。</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-_文件注释"><span class="nav-number">2.1.</span> <span class="nav-text">1. 文件注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-_类注释"><span class="nav-number">2.2.</span> <span class="nav-text">2. 类注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-_方法注释"><span class="nav-number">2.3.</span> <span class="nav-text">3. 方法注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-_域变量和常量注释"><span class="nav-number">2.4.</span> <span class="nav-text">4. 域变量和常量注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-_其他注释"><span class="nav-number">2.5.</span> <span class="nav-text">5. 其他注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-_XML注释"><span class="nav-number">2.6.</span> <span class="nav-text">6. XML注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#约定俗成的一些注释原则"><span class="nav-number">2.7.</span> <span class="nav-text">约定俗成的一些注释原则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-_get_/_set_方法的注释"><span class="nav-number">2.8.</span> <span class="nav-text">1. get / set 方法的注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-_第三方库生成代码的注释"><span class="nav-number">2.9.</span> <span class="nav-text">2. 第三方库生成代码的注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-_通用类的注释"><span class="nav-number">2.10.</span> <span class="nav-text">3. 通用类的注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-_一般情况下的注释"><span class="nav-number">2.11.</span> <span class="nav-text">4. 一般情况下的注释</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、书写，排版"><span class="nav-number">3.</span> <span class="nav-text">三、书写，排版</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-_前大括号不单独开行"><span class="nav-number">3.1.</span> <span class="nav-text">1. 前大括号不单独开行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-_空行加入原则"><span class="nav-number">3.2.</span> <span class="nav-text">2. 空行加入原则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-一行声明一个变量，不要一行声明多个变量，这样有利于写注释。"><span class="nav-number">3.3.</span> <span class="nav-text">3.一行声明一个变量，不要一行声明多个变量，这样有利于写注释。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-使用快捷键进行代码自动格式化。"><span class="nav-number">3.4.</span> <span class="nav-text">4.使用快捷键进行代码自动格式化。</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、命名规则"><span class="nav-number">1.</span> <span class="nav-text">一、命名规则</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-_包命名"><span class="nav-number">1.1.</span> <span class="nav-text">1. 包命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-_类和接口命名"><span class="nav-number">1.2.</span> <span class="nav-text">2. 类和接口命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-_方法的命名"><span class="nav-number">1.3.</span> <span class="nav-text">3. 方法的命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-_变量的命名规则"><span class="nav-number">1.4.</span> <span class="nav-text">4. 变量的命名规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-_异常的命名"><span class="nav-number">1.5.</span> <span class="nav-text">5. 异常的命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-_布局的命名_xml的命名"><span class="nav-number">1.6.</span> <span class="nav-text">6. 布局的命名 xml的命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-_控件ID的命名"><span class="nav-number">1.7.</span> <span class="nav-text">7. 控件ID的命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-_图片的命名"><span class="nav-number">1.8.</span> <span class="nav-text">8. 图片的命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-_其他资源命名"><span class="nav-number">1.9.</span> <span class="nav-text">9. 其他资源命名</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、注释"><span class="nav-number">2.</span> <span class="nav-text">二、注释</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#说明：注释的原则是有助于对程序的阅读理解，在该加的地方都加了，注释不宜太多也不能太少，注释语言必须准确、易懂、简洁。"><span class="nav-number">2.0.0.0.1.</span> <span class="nav-text">说明：注释的原则是有助于对程序的阅读理解，在该加的地方都加了，注释不宜太多也不能太少，注释语言必须准确、易懂、简洁。</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-_文件注释"><span class="nav-number">2.1.</span> <span class="nav-text">1. 文件注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-_类注释"><span class="nav-number">2.2.</span> <span class="nav-text">2. 类注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-_方法注释"><span class="nav-number">2.3.</span> <span class="nav-text">3. 方法注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-_域变量和常量注释"><span class="nav-number">2.4.</span> <span class="nav-text">4. 域变量和常量注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-_其他注释"><span class="nav-number">2.5.</span> <span class="nav-text">5. 其他注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-_XML注释"><span class="nav-number">2.6.</span> <span class="nav-text">6. XML注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#约定俗成的一些注释原则"><span class="nav-number">2.7.</span> <span class="nav-text">约定俗成的一些注释原则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-_get_/_set_方法的注释"><span class="nav-number">2.8.</span> <span class="nav-text">1. get / set 方法的注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-_第三方库生成代码的注释"><span class="nav-number">2.9.</span> <span class="nav-text">2. 第三方库生成代码的注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-_通用类的注释"><span class="nav-number">2.10.</span> <span class="nav-text">3. 通用类的注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-_一般情况下的注释"><span class="nav-number">2.11.</span> <span class="nav-text">4. 一般情况下的注释</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、书写，排版"><span class="nav-number">3.</span> <span class="nav-text">三、书写，排版</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-_前大括号不单独开行"><span class="nav-number">3.1.</span> <span class="nav-text">1. 前大括号不单独开行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-_空行加入原则"><span class="nav-number">3.2.</span> <span class="nav-text">2. 空行加入原则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-一行声明一个变量，不要一行声明多个变量，这样有利于写注释。"><span class="nav-number">3.3.</span> <span class="nav-text">3.一行声明一个变量，不要一行声明多个变量，这样有利于写注释。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-使用快捷键进行代码自动格式化。"><span class="nav-number">3.4.</span> <span class="nav-text">4.使用快捷键进行代码自动格式化。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-_较长的语句(100字符)要分成多行书写_,_长表达式要在低优先级操作符处划分新行_,_操作符放在新行之首_,_划分出的新行要进行适当的缩进_,_使排版整齐"><span class="nav-number">3.5.</span> <span class="nav-text">5. 较长的语句(100字符)要分成多行书写 , 长表达式要在低优先级操作符处划分新行 , 操作符放在新行之首 , 划分出的新行要进行适当的缩进 , 使排版整齐</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-_if、for、do、while、case、switch、default等语句自占一行，且if、for、do、while等语句的执行语句部分无论多少都要加括号{}。"><span class="nav-number">3.6.</span> <span class="nav-text">4. if、for、do、while、case、switch、default等语句自占一行，且if、for、do、while等语句的执行语句部分无论多少都要加括号{}。</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
